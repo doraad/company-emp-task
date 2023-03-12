@@ -1,0 +1,56 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+public class Company {
+
+    //add Employee in Company
+    List<Employee> emp = new ArrayList<>();
+    public void addEmp(Employee e){
+        emp.add(e);
+    }
+    private String nameOfCompany;
+
+    public Company(String nameOfCompany){
+        this.nameOfCompany = nameOfCompany;
+    }
+
+    public String getNameOfCompany(){
+        return getNameOfCompany();
+    }
+    public void setNameOfCompany(){
+        this.nameOfCompany = nameOfCompany;
+    }
+    public  void deleteEmployee(String employeeName){
+        for(Employee e:emp)
+        {
+            if(employeeName.equals(e.getFullName()))
+            {
+                emp.remove(e);
+                return;
+            }
+        }
+        System.out.println("Employee not found!");
+    }
+
+    public void printCompany()
+    {
+        System.out.println("Company :" + nameOfCompany);
+        System.out.println("Has following employees");
+
+        for(Employee e:emp)
+        {
+            e.printEmployee();
+        }
+    }
+    public void Solution()
+    {
+        Collections.sort(emp, Comparator.comparing(Employee::getTaskInPastMonth));
+        System.out.println("Print emplyee in past month ");
+        for (int i=emp.size()-1;i>=0;i--)
+        {
+            System.out.println( emp.get(i).getFullName());
+        }
+    }
+}
