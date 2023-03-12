@@ -1,0 +1,78 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+
+        Task task1 = new Task("Prepare presentation", "Presentation for customers", "Jeniffer Smith", "13.03.2021");
+        Employee employee1 = new Employee(98948579, 2000.00, "Jeniffer Smith", "jenifersmith@gmail.com", "05.06.1987");
+        Task task2 = new Task("Read documents", "Read clients documents", "Liam Miller", "04.05.2023");
+        Employee employee2 = new Employee(34567806, 3100.00, "Liam Miller", "liammiller83@gmail.com", "09.01.1983");
+        Task task3 = new Task("Develop national plans", "Develop and update National Response Plan", "Jon Williams", "05.05.2023");
+        Employee employee3 = new Employee(98765432, 5000.00, "Jon Williams", "jonwilliamsss@yahoo.com", "10.03.1993");
+        Task task4 = new Task("Define responsibilites", "Responsibilites about agencies and departament", "John Snow", "09.08.2023");
+        Employee employee4 = new Employee(12398745, 4800.00, "John Snow", "johnsnow@yahoo.com", "12.10.1992");
+        Task task5 = new Task("Gif desing", "Gid design for page loading", "Merlin Haag", "18.03.2023");
+        Employee employee5 =new Employee(66675733, 2000.00,"Merlin Haag", "merlinhaagmerlin@gmail.com", "07.04.1993");
+        Task task6 = new Task("Color Section", "Updating and testing color section", "Christina Jenkins", "24.04.2023");
+        Employee employee6 = new Employee(22223111, 1800.00, "Christina Jenkins", "christinajenkins@gmail.com", "17.03.1968");
+        Task task7 = new Task("Review final version", "Preparing images and contents to be send", "Mike Pitt", "05.01.2024");
+        Employee employee7 = new Employee(33898980, 2000.00, "Mike Pitt", "mikepitt@gmail.com", "13.09.1982");
+        //UPDATE TASK 7 and Employee
+        System.out.println("Insert new task name for task 7.");
+
+        String taskName = sc.nextLine();
+        task7.updateTitle(taskName);
+
+        System.out.println("Insert new employee name  for employee 7");
+
+        String employeName = sc.nextLine();
+        employee7.setFullName(employeName);
+        //Add task for Employee
+        employee1.addTask(task1);
+        employee1.addTask(task7);
+        employee2.addTask(task1);
+        employee2.addTask(task2);
+        employee2.addTask(task7);
+        employee3.addTask(task1);
+        employee3.addTask(task2);
+        employee3.addTask(task3);
+        employee3.addTask(task5);
+        employee3.addTask(task7);
+        employee4.addTask(task3);
+        employee4.addTask(task4);
+        employee4.addTask(task6);
+        employee4.addTask(task7);
+        employee5.addTask(task5);
+        employee5.addTask(task7);
+        employee6.addTask(task6);
+        employee6.addTask(task7);
+        employee7.addTask(task7);
+
+        Company company1 = new Company("Oracle");
+//        Company company2 = new Company("Microsoft");
+//        Company company3 = new Company("Apple");
+
+        //Add Employee in Company
+        company1.addEmp(employee1);
+        company1.addEmp(employee2);
+        company1.addEmp(employee3);
+        company1.addEmp(employee4);
+        company1.addEmp(employee5);
+        company1.addEmp(employee6);
+        company1.addEmp(employee7);
+
+
+        System.out.println("Insert task name that you want to delete of employee No.7");
+
+        String deleteTaskName = sc.nextLine();
+        employee7.DeleteTask(deleteTaskName);
+
+        System.out.println("Insert Employee name that you want to delete from company");
+
+        String deleteEmployeeName = sc.nextLine();
+        company1.deleteEmployee(deleteEmployeeName);
+
+        company1.Solution();
+    }
+}
