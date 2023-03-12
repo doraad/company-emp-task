@@ -1,0 +1,104 @@
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+
+public class Employee {
+
+    //add Task
+    List<Task> tasks = new ArrayList<>();
+    int taskInPastMonth;
+    public void addTask(Task x){
+
+        tasks.add(x);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+        LocalDate dateTime = LocalDate.parse(x.getDueDate(), formatter);
+        LocalDate pastMonth = LocalDate.parse("01.02.2023",formatter);
+        if(dateTime.isAfter(pastMonth))
+        {
+            taskInPastMonth++;
+        }
+    }
+    //Information for employee
+    private int phoneNumber;
+    private double salary;
+    private String fullName, email, dateOfBirth;
+
+    public Employee(int phoneNumber, double salary, String fullName, String email, String dateOfBirth){
+        this.phoneNumber = phoneNumber;
+        this.salary = salary;
+        this.fullName = fullName;
+        this.email = email;
+        this.dateOfBirth = dateOfBirth;
+        this.taskInPastMonth=0;
+    }
+    //Getter and setter
+    public int getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(int phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public int getTaskInPastMonth(){ return  taskInPastMonth;}
+
+    public  void DeleteTask(String taskName){
+        for(Task t :tasks)
+        {
+            if(taskName.equals(t.getTitle()))
+            {
+                tasks.remove(t);
+                return;
+            }
+        }
+        System.out.println("Task not found!");
+    }
+    public void printEmployee()
+    {
+        System.out.println("Employee full name " +fullName +" Email :"+email);
+        System.out.println("Emoloyee has " +taskInPastMonth +" and they are:");
+        for(Task t :tasks)
+        {
+            t.printTask();
+        }
+    }
+    public  int getNumberOfTasks()
+    {
+        return tasks.size();
+    }
+
+}
