@@ -18,16 +18,14 @@ public class Main {
         Employee employee6 = new Employee(22223111, 1800.00, "Christina Jenkins", "christinajenkins@gmail.com", "17.03.1968");
         Task task7 = new Task("Review final version", "Preparing images and contents to be send", "Mike Pitt", "05.01.2024");
         Employee employee7 = new Employee(33898980, 2000.00, "Mike Pitt", "mikepitt@gmail.com", "13.09.1982");
-        //UPDATE TASK 7 and Employee
+        //UPDATE Task7 and Employee7
         System.out.println("Insert new task name for task 7.");
-
         String taskName = sc.nextLine();
         task7.updateTitle(taskName);
 
-        System.out.println("Insert new employee name  for employee 7");
-
-        String employeName = sc.nextLine();
-        employee7.setFullName(employeName);
+        System.out.println("Insert new employee name  for employee 7.");
+        String employeeName = sc.nextLine();
+        employee7.setFullName(employeeName);
         //Add task for Employee
         employee1.addTask(task1);
         employee1.addTask(task7);
@@ -50,8 +48,6 @@ public class Main {
         employee7.addTask(task7);
 
         Company company1 = new Company("Oracle");
-//        Company company2 = new Company("Microsoft");
-//        Company company3 = new Company("Apple");
 
         //Add Employee in Company
         company1.addEmp(employee1);
@@ -62,7 +58,7 @@ public class Main {
         company1.addEmp(employee6);
         company1.addEmp(employee7);
 
-
+        //DELETE TaskName and EmployeeName
         System.out.println("Insert task name that you want to delete of employee No.7");
 
         String deleteTaskName = sc.nextLine();
